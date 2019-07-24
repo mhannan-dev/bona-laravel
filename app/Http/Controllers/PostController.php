@@ -17,8 +17,18 @@ class PostController extends Controller
 
     }
     public function details($slug){
-        $posts  = Post::where('slug',$slug)->first();
 
-        return view('post_page', compact('posts'));
+        //$post = Post::where('slug',$slug)->approved()->published()->first();
+        $post = Post::where('slug',$slug)->first();
+
+        $blogKey = 'blog_' . $post->id;
+        if (!Session::has($blogKey)) {
+            $post->increment('view_count');
+            Session::put($blogKey,1);
+        }
+        //$randomposts = Post::approved()->published()->take(3)->inRandomOrder()->get();
+        $random_posts = Post::all()->random(6);
+
+        return view('post_page', compact('post','random_posts'));
     }
 }

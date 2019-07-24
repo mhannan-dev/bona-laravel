@@ -1,5 +1,5 @@
 @extends ('layouts.backEnd.app')
-@section('title', 'Category')
+@section('title', 'Blog Preview')
 @push('stylesheet')
     <!-- JQuery DataTable Css -->
     <link href="{{ asset('assets/backEnd/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}} " rel="stylesheet">
@@ -9,8 +9,9 @@
 @section('content')
     <div class="container-fluid">
         <!-- Vertical Layout | With Floating Label -->
-        <a href="{{ route('admin.post.index') }}" class="btn btn-danger waves-effect"><i class="material-icons">arrow_back</i></a>
-        <a href="{{ route('admin.post.index') }}" class="btn btn-danger waves-effect"><i class="material-icons">add</i></a>
+
+        <a href="{{ route('author.post.index') }}" class="btn btn-danger waves-effect"><i class="material-icons">arrow_back</i></a>
+        <a href="{{ route('author.post.create') }}" class="btn btn-danger waves-effect"><i class="material-icons">add</i></a>
 
         @if($post->is_approved == false)
             <button type="button" class="btn btn-success waves-effect pull-right" onclick="approvePost({{ $post->id }})">
@@ -147,7 +148,7 @@
         }
 
     </script>
-
+    
 @endpush
 
 

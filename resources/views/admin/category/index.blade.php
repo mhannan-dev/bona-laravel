@@ -68,7 +68,7 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $catt->name }}</td>
                                             <td>{{ $catt->slug }}</td>
-                                            <td><img class="img-fluid img-thumbnail" style="height: 60px; width: 60px" src="{{ Storage::disk('public')->url('category/'.$catt->image) }}{{ asset('storage/category/'.$catt->image) }}"></td>
+                                            <td><img class="img-fluid img-thumbnail" style="height: 60px; width: 60px" src="{{ asset('storage/category/'.$catt->image) }}"></td>
 
 
                                             <td>{{ $catt->updated_at->diffForHumans() }}</td>

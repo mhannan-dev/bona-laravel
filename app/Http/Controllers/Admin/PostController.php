@@ -248,7 +248,7 @@ class PostController extends Controller
         } else {
             Toastr::info('This Post is already approved','Info');
         }
-        return redirect()->route('admin.post.index');
+        return redirect()->route('admin.post.pending');
         //return $id;
 
     }
