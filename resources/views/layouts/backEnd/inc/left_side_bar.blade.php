@@ -2,7 +2,7 @@
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
-            <img src="{{ asset('assets/backEnd/images/user.png') }}" width="48" height="48" alt="User" />
+            <img src="{{ asset('storage/profile/'.Auth::user()->image) }}" width="48" height="48" alt="User" />
         </div>
         <div class="info-container">
             <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
@@ -82,6 +82,12 @@
                         <span>Subscribers</span>
                     </a>
                 </li>
+                <li class="{{ Request::is('admin/comment')? 'active' : '' }}">
+                    <a href="{{ route('admin.comment.index') }}">
+                        <i class="material-icons">comment</i>
+                        <span>Comments</span>
+                    </a>
+                </li>
 
 
 
@@ -127,6 +133,14 @@
                         <span>Favourite Post</span>
                     </a>
                 </li>
+
+                <li class="{{ Request::is('author/comment')? 'active' : '' }}">
+                    <a href="{{ route('author.comment.index') }}">
+                        <i class="material-icons">comment</i>
+                        <span>Comments</span>
+                    </a>
+                </li>
+
 
                 <li class="header">Systems</li>
                 <li class="">

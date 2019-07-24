@@ -28,6 +28,8 @@ Route::group(['middleware' =>['auth']],
     function(){
         Route::post('favorite/{post}/add','FavouriteController@add')->name('post.favorite');
 
+        Route::post('comment/{post}','CommentController@store')->name('comment.store');
+
     });
 
 
@@ -54,6 +56,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin','middleware
 
     Route::get('/favourite', 'FavouriteController@index')->name('favourite.index');
 
+    Route::get('/comment', 'CommentController@index')->name('comment.index');
+
+    Route::delete('comments/{id}','CommentController@destroy')->name('comment.destroy');
+
     Route::resource('subscriber', 'SubscriberController');
 
 
@@ -73,6 +79,10 @@ Route::group(['as'=>'author.','prefix'=>'author', 'namespace'=>'Author','middlew
     Route::put('password-update','SettingsController@updatePassword')->name('password.update');
 
     Route::get('/favourite', 'FavouriteController@index')->name('favourite.index');
+
+    Route::get('/comment', 'CommentController@index')->name('comment.index');
+
+    Route::delete('comments/{id}','CommentController@destroy')->name('comment.destroy');
 
 });
 

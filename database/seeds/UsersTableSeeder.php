@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'role_id' => '1',
             'name' => 'Admin',
             'username' => 'admin',
-            'email' => 'hannan@arobil.com',
+            'email' => 'mdhanan.info@gmail.com',
             'password' => bcrypt('rootadmin'),
 
         ]);
@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
             'role_id' => '2',
             'name' => 'author',
             'username' => 'author',
-            'email' => 'author@arobil.com',
+            'email' => 'hannan@arobil.com',
             'password' => bcrypt('rootadmin'),
 
         ]);
