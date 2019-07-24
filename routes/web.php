@@ -12,10 +12,10 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-
-Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
 Route::get('posts','PostController@index')->name('post.index');
 Route::get('post/{slug}','PostController@details')->name('post.details');
+Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
+
 Route::get('/category/{slug}','PostController@postByCategory')->name('category.posts');
 Route::get('/tag/{slug}','PostController@postByTag')->name('tag.posts');
 
