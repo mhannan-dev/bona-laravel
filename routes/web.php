@@ -106,3 +106,8 @@ View::composer('layouts.frontEnd.partial.footer',function ($view) {
 });
 
 
+View::composer('layouts.frontEnd.partial.footer',function ($view) {
+    $siteInfo = App\SiteSettings::all();
+    //return $categories;
+    $view->with('siteInfo',$siteInfo);
+});

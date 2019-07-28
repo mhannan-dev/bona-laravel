@@ -6,9 +6,12 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
 
-                    <a class="logo" href="#"><img src="images/logo.png" alt="Logo Image"></a>
-                    <p class="copyright">Bona @ 2017. All rights reserved.</p>
-                    <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    <a class="logo" href="#"><img src="{{ asset('assets/frontEnd/images/logo.png') }}" alt="Logo Image"></a>
+
+                    @foreach( $siteInfo as $site_Info)
+                        <p class="copyright">{{ $site_Info->copyright }}</p>
+                    @endforeach
+                    <p class="copyright">Designed by <a href="#" target="_blank">{{ $site_Info->developedBy }}</a></p>
                     <ul class="icons">
                         <li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
                         <li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\SiteSettings;
 use Illuminate\Http\Request;
 use App\Category;
 
@@ -36,5 +37,7 @@ class HomeController extends Controller
         $randomposts = Post::approved()->published()->take(3)->inRandomOrder()->get();
         return view('post',compact('post','randomposts'));
     }
+
+
 
 }
