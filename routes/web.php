@@ -1,8 +1,5 @@
 <?php
-//if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-//
-//    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-//}
+
 
 
 /*
@@ -27,6 +24,8 @@ Route::get('post/{slug}','PostController@details')->name('post.details');
 Route::get('/tag/{slug}','PostController@postByTag')->name('taq.post');
 
 Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
+
+Route::get('/search', 'SearchController@search')->name('search');
 
 Route::get('/category/{slug}','PostController@postByCategory')->name('category.posts');
 
@@ -63,7 +62,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin','middleware
 
     Route::resource('post', 'PostController');
 
-    Route::get('pending/post', 'PostController@pending')->name('post.pending');
+    Route::get('pending', 'PostController@pending')->name('post.pending');
 
     Route::put('/post/{id}/approve', 'PostController@approval')->name('post.approve');
 
@@ -74,6 +73,11 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'namespace'=>'Admin','middleware
     Route::delete('comments/{id}','CommentController@destroy')->name('comment.destroy');
 
     Route::resource('subscriber', 'SubscriberController');
+
+    Route::get('authors', 'AuthorController@index')->name('author.index');;
+
+    Route::delete('authors/{id}', 'AuthorController@destroy')->name('author.destroy');;
+
 
 
 });
