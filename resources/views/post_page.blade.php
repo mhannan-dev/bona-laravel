@@ -37,7 +37,7 @@
                             <div class="post-info">
 
                                 <div class="left-area">
-                                    <a class="avatar" href="#"><img src="{{ asset('storage/profile/'.$post->user->image) }}" alt="Profile Image"></a>
+                                    <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ asset('storage/profile/'.$post->user->image) }}" alt="Profile Image"></a>
                                 </div>
 
                                 <div class="middle-area">
@@ -109,8 +109,10 @@
 
                             <h4 class="title"><b>SUBSCRIBE</b></h4>
                             <div class="input-area">
-                                <form>
-                                    <input class="email-input" type="text" placeholder="Enter your email">
+                                <form class="" role="form" method="POST" action="{{ route('subscriber.store') }}">
+                                    {{ csrf_field() }}
+
+                                    <input name="email" class="email-input" type="email" placeholder="Enter your email">
                                     <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
                                 </form>
                             </div>
@@ -149,7 +151,7 @@
 
                                 <div class="blog-image"><img src="{{ asset('storage/post/'.$random_post->image) }}" alt="Blog Image"></div>
 
-                                <a class="avatar" href="#"><img src="{{ asset('storage/profile/'.$random_post->user->image) }}" alt="Profile Image"></a>
+                                <a class="avatar" href="{{ route('author.profile',$random_post->user->username) }}"><img src="{{ asset('storage/profile/'.$random_post->user->image) }}" alt="Profile Image"></a>
 
                                 <div class="blog-info">
 
@@ -172,7 +174,7 @@
                                             @endguest
 
                                         </li>
-                                        <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                        <li><a href="#"><i class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a></li>
                                         <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
                                     </ul>
 

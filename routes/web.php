@@ -19,6 +19,8 @@ Route::get('posts','PostController@index')->name('post.index');
 
 Route::get('post/{slug}','PostController@details')->name('post.details');
 
+Route::get('profile/{username}','AuthorController@profile')->name('author.profile');
+
 
 
 Route::get('/tag/{slug}','PostController@postByTag')->name('taq.post');

@@ -50,7 +50,7 @@
 
                             <input name="email" class="email-input" type="email" placeholder="Enter your email">
                             <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
-                        </form>
+                            </form>
                     </div>
 
                 </div><!-- footer-section -->
@@ -59,3 +59,5 @@
         </div><!-- row -->
     </div><!-- container -->
 </footer>
+
+
